@@ -37,6 +37,34 @@ from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from tensorflow.keras.utils import to_categorical
 ```
 
+## Displaying Cataract Images with Labels
+This snippet loads and displays a set of cataract images along with their filenames using OpenCV and Matplotlib:
+```python
+plt.figure(figsize=(8,8))
+for i in range(9):
+    img = df_cat_filenames[i]
+    image = cv2.imread(os.path.join(img_dir, img))
+
+    # Convert image to RGB
+    image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+    # Subplot variables - (# of rows, # of columns, iterate through locations on grid)
+    plt.subplot(3,3,i+1)
+    plt.imshow(image_rgb)
+    
+    # Label with filename and diagnosis
+    plt.xlabel('Filename: {}
+''Cataract'.format(df_cat_filenames[i]))
+
+plt.tight_layout()
+```
+### Explanation:
+- The function `cv2.imread()` reads the image from the specified directory.
+- The image is then converted from BGR to RGB format using `cv2.cvtColor()`.
+- The `plt.subplot()` function is used to display a grid of 3x3 images.
+- The filenames and corresponding labels are added as captions using `plt.xlabel()`.
+- `plt.tight_layout()` ensures the plots are properly spaced and visually clear.
+
 ## Usage
 1. Clone the repository:
    ```bash
