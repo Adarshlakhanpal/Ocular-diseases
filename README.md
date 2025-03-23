@@ -65,6 +65,34 @@ plt.tight_layout()
 - The filenames and corresponding labels are added as captions using `plt.xlabel()`.
 - `plt.tight_layout()` ensures the plots are properly spaced and visually clear.
 
+## Displaying Normal Images with Labels
+This snippet loads and displays a set of normal images along with their filenames using OpenCV and Matplotlib:
+```python
+plt.figure(figsize=(8,8))
+for i in range(9):
+    img = df_norm_filenames_random[i]
+    image = cv2.imread(os.path.join(img_dir, img))
+
+    # Convert image to RGB
+    image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+    # Subplot variables - (# of rows, # of columns, iterate through locations on grid)
+    plt.subplot(3,3,i+1)
+    plt.imshow(image_rgb)
+    
+    # Label with filename and diagnosis
+    plt.xlabel('Filename: {}
+''Normal'.format(df_norm_filenames_random[i]))
+
+plt.tight_layout()
+```
+### Explanation:
+- Similar to the cataract image display function, this snippet loads normal images.
+- The images are converted from BGR to RGB format.
+- The `plt.subplot()` function arranges images in a 3x3 grid.
+- Filenames and labels are added using `plt.xlabel()`.
+- `plt.tight_layout()` ensures better visualization.
+
 ## Usage
 1. Clone the repository:
    ```bash
