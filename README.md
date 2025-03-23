@@ -16,7 +16,25 @@ The dataset consists of images of normal and cataract-affected eyes. It has been
 ## Requirements
 To run this project, install the following dependencies:
 ```bash
-pip install torch torchvision numpy opencv-python matplotlib
+pip install torch torchvision numpy opencv-python matplotlib tensorflow keras tqdm pandas os opencv-python-headless
+```
+
+## Additional Imports Used in the Project
+```python
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import os
+import random
+import itertools
+import cv2
+import matplotlib.pyplot as plt
+from tqdm import tqdm
+import math
+
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import layers
+from tensorflow.keras.preprocessing.image import load_img, img_to_array
+from tensorflow.keras.utils import to_categorical
 ```
 
 ## Usage
